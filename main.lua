@@ -7,9 +7,14 @@
 -- hide the status bar
 display.setStatusBar(display.HiddenStatusBar)
 
-
+  -------------------
+--| Local Variables |
+  -------------------
+--loads Ting sound effect
 local Ting = audio.loadSound("Sounds/ding.mp3")
+--channel for Ting
 local playTing
+--params for TIng Sound
 local optionsTing = 
 {
 	channel = 1,
@@ -17,8 +22,11 @@ local optionsTing =
 }
 audio.setVolume ( 1, optionsTing)
 
+--loads background music file
 local backgroundMusic = audio.loadSound ("Sounds/Party.mp3")
+-- create channel for background music
 local backgroundMusicChannel
+--sets params for background music
 local optionsbackgroundMusic =
 {
 	channel = 2
@@ -47,6 +55,31 @@ local backgroundrect = display.newImageRect("Images/rectblue.jpg", 1950, 600)
 local clicktext = display.newText("Correct!", 500, 500, "Images/vinet.ttf", 140)
 	clicktext.isVisible = false
 	clicktext:setFillColor(1, 0.2, 0)
+
+local particles = require("particles")
+
+local pex = require "com.ponywolf.pex"
+
+--[[
+local questionObject
+
+local numericField
+
+local randomNumber1
+
+local randomNumber2
+
+local userAnswer
+
+local correctAnswer
+]]--
+
+local particle = pex.load(particles.part_fire_pex,particles.part_fire_tex)
+
+local emitter = display.newEmitter(particle)
+	emitter.x = display.contentCenterX
+	emitter.y = display.contentCenterY
+
 
 
 -- creates variable and sets properties for Red Button
@@ -86,12 +119,12 @@ local emitterparams = {
 }
  
 -- Create the emitter
-local emitter = display.newEmitter(emitterparams)
+local firemitter = display.newEmitter(emitterparams)
  
 -- Center the emitter within the content area
-	emitter.x = 500
-	emitter.y = 500
-	emitter.isVisible = false
+	firemitter.x = 500
+	firemitter.y = 500
+	firemitter.isVisible = false
 
 
 
@@ -112,29 +145,6 @@ local function Redbuttonclick(touch)
 	end
 
 end
-
-
-local questionObject
-
-local numericField
-
-local randomNumber1
-
-local randomNumber2
-
-local userAnswer
-
-local correctAnswer
-
-
-
-
-
-
-
-
-
-
 
 
 
