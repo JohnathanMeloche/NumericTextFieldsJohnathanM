@@ -56,9 +56,9 @@ local clicktext = display.newText("Correct!", 500, 500, "Images/vinet.ttf", 140)
 	clicktext.isVisible = false
 	clicktext:setFillColor(1, 0.2, 0)
 
-local particles = require("particles")
+--local particles = require("particles")
 
-local pex = require "com.ponywolf.pex"
+local pex = require "pony.com.ponywolf.pex"
 
 --[[
 local questionObject
@@ -74,7 +74,9 @@ local userAnswer
 local correctAnswer
 ]]--
 
-local particle = pex.load(particles.part_fire_pex,particles.part_fire_tex)
+local particle = pex.load("Images/particle.pex", "Images/texture.png")
+
+--local particle = pex.load(particles.part_fire_pex, particles.part_fire_tex)
 
 local emitter = display.newEmitter(particle)
 	emitter.x = display.contentCenterX
